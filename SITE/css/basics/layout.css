@@ -1,0 +1,29 @@
+/* Main Layout */
+
+
+.main-layout{
+    display: grid;
+    grid-template-columns: 20px 1fr 20px ;
+
+    >* {
+        &:not(.full){
+            grid-column: 2;
+        }
+
+        &.full{
+            grid-column: 1 / -1;
+        }
+        
+    }
+}
+
+
+.header-layout{
+    display: grid;
+}
+
+.editor-main-layout{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 150px;
+}

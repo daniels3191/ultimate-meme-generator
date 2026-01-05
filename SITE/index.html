@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Ultimate Meme Generator</title>
+</head>
+
+<body class="main-layout" onload="onInit()">
+
+    <header class="header main-layout full">
+        <div class="header-layout grid space-between flow-column align-center">
+            <div class="logo"><img src="/img/logo/logo.png" alt=""></div>
+            <nav class="main-nav ">
+                <ul class="clean-list grid flow-column">
+                    <li><a href="#">Memes</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="gallery-container">
+            <nav class="gallery-nav">
+                <div class="img-search">Enter search keyword</div>
+            </nav>
+            <div class="img-container">
+                <img src="img/gallery/1.jpg" onclick="onSelectImg(this)" alt="">
+            </div>
+        </div>
+
+        <div class="media">media shering</div>
+
+        <section class="editor-main-layout">
+
+
+            <div class="canvas-container">
+                <p>Canvas Container</p>
+                <canvas width="400" height="400">
+
+                </canvas>
+            </div>
+            <div class="editor-container">
+                <input value="Hello" type="text" oninput="onChangeLineText(this)">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="logo">Memegen</div>
+        <div class="small">all rights reserved 2019</div>
+
+    </footer>
+
+</body>
+<!-- <script src="js/main.js"></script> -->
+<script src="js/meme.controller.js"></script>
+<script src="js/meme.service.js"></script>
+
+
+</html>

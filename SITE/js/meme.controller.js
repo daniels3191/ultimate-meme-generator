@@ -1,0 +1,69 @@
+'use strict'
+
+let gElCanvas
+let gCtx
+
+function onInit() {
+    gElCanvas = document.querySelector('canvas')
+    console.log(gElCanvas);
+
+    gCtx = gElCanvas.getContext('2d')
+
+    resizeCanvas()
+
+    window.addEventListener('resize', () => resizeCanvas())
+}
+
+
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+
+    gElCanvas.width = elContainer.clientWidth
+
+
+}
+function onSelectImg(elImg) {
+    renderMeme(elImg)
+}
+
+// function renderMeme(elImg) {
+
+//     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+//     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+//     drawText('Hello', gElCanvas.width/2, 45)
+// }
+function renderMeme() {
+
+    const meme = getMeme()
+    const imgIdx = meme.selectedImgId
+    const text = meme.lines[0].txt
+    
+    const elImg = new Image()
+    elImg.src = `img/gallery/${imgIdx}.jpg`
+
+    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+    drawText(text, gElCanvas.width / 2, 45)
+}
+
+function drawText(text, x, y) {
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = 'white'
+
+    gCtx.fillStyle = 'white'
+
+    gCtx.font = '45px Arial'
+    gCtx.textAlign = 'center'
+    gCtx.textBaseline = 'middle'
+
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+}
+
+function onChangeLineText(elText){
+    setLineTxt(elText.value)
+    renderMeme()
+
+    
+}
