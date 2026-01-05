@@ -1,7 +1,10 @@
 'use strict'
 
 
-// var gImgs = [{id: 1, url: 'img/1.jpg', keywords: ['funny', 'humman']}]
+var gImgs = [
+    { id: 1, url: 'img/gallery/1.jpg', keywords: ['funny', 'humman'] },
+    { id: 2, url: 'img/gallery/2.jpg', keywords: ['funny', 'humman'] }
+]
 var gMeme = {
 selectedImgId: 1,
 selectedLineIdx: 0,
@@ -17,14 +20,13 @@ color: 'red'
 // var gKeywordSearchCountMap = {'funny': 12,'cat': 16, 'baby': 2}
 
 function getMeme(){
-    console.log('test');
-    
     return gMeme
 }
 
 function setLineTxt(text){
-
     gMeme.lines[0].txt = text
-    
+}
 
+function getImgs(){
+    return gImgs
 }
