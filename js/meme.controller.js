@@ -5,7 +5,6 @@ let gCtx
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
-    console.log(gElCanvas);
 
     gCtx = gElCanvas.getContext('2d')
 
@@ -24,6 +23,7 @@ function resizeCanvas() {
 }
 
 function renderMeme() {
+    
     const meme = getMeme()
     const imgIdx = meme.selectedImgId
 
@@ -38,17 +38,20 @@ function renderMeme() {
 }
 
 function renderLines() {
+    
     const meme = getMeme()
     const lines = meme.lines
 
     lines.forEach(line => {
-        const hight = 45 + lines.indexOf(line) * 40
-        drawText(line.size, line.color, line.txt, gElCanvas.width / 2, hight, lines.indexOf(line), meme.selectedLineIdx)
+        const y = 45 + lines.indexOf(line) * 40
+        const x = gElCanvas.width / 2
+        drawText(line.size, line.color, line.txt, x, y, lines.indexOf(line), meme.selectedLineIdx)
     })
 
 }
 
 function drawText(size, color, text, x, y, lineIdx, selectedLineIdx) {
+
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
 
@@ -67,34 +70,35 @@ function drawText(size, color, text, x, y, lineIdx, selectedLineIdx) {
         const textSize = gCtx.measureText(text)
         const textWidth = textSize.width
         const textHight = size
-        
+
         //add pedding
         const padding = size / 8
 
-        drawRectangle(textHight, textWidth, color, x, y, padding)
+        drawRectangle(textWidth, textHight, color, x, y, padding, lineIdx)
     }
-
-
-
 }
 
-function drawRectangle(hight, width, color, x, y, padding) {
+function drawRectangle(textWidth, textHight, color, x, y, padding, lineIdx) {
     gCtx.beginPath()
     gCtx.strokeStyle = color
     gCtx.lineWidth = 2
 
-    const rectX = x - (width + padding * 4) / 2
-    const rectY = y - (hight + padding * 2) / 2
+    const rectX = x - (textWidth + padding * 4) / 2
+    const rectY = y - (textHight + padding * 2) / 2
 
-    gCtx.strokeRect(rectX, rectY, width + padding * 4, hight + padding * 2)
+    const rectWidth = textWidth + padding * 4
+    const rectHight = textHight + padding * 2
+
+    gCtx.strokeRect(rectX, rectY, rectWidth, rectHight)
+
+    saveTextProp(lineIdx, rectX, rectY, rectWidth, rectHight)
+    
 
 }
 
 function onChangeLineText(elText) {
     setLineTxt(elText.value)
     renderMeme()
-
-
 }
 
 function onChangeToGallery() {
@@ -102,7 +106,6 @@ function onChangeToGallery() {
     elditor.classList.add('hide')
     const elgallery = document.querySelector('.gallery-container')
     elgallery.classList.remove('hide')
-
 }
 
 function downloadCanvas(elLink) {
@@ -115,30 +118,44 @@ function downloadCanvas(elLink) {
 function onChangeColor(elColor) {
     setColor(elColor.value)
     renderMeme()
-
 }
 
 function onChangeFontSize(action) {
     const additionValue = action === 'increase' ? 2 : -2
     setFontSize(additionValue)
     renderMeme()
-
 }
 
 function onAddLine() {
     addLine()
-    switchTextBoxInput()
+    _switchTextBoxInput()
+    _changeTextColorInput()
     renderMeme()
 }
 
 function onSwitchLine() {
     switchLine()
-    switchTextBoxInput()
+    _switchTextBoxInput()
+    _changeTextColorInput()
     renderMeme()
 }
-function switchTextBoxInput() {
+function _switchTextBoxInput() {
     const elTextBox = document.getElementById('text-box')
     const meme = getMeme()
 
     elTextBox.value = meme.lines[meme.selectedLineIdx].txt
 }
+
+function onDown(ev){
+    const { offsetX, offsetY } = ev
+    switchLineByClick(offsetX, offsetY )
+    _switchTextBoxInput()
+    _changeTextColorInput()
+    renderMeme()
+}
+
+ function _changeTextColorInput(){
+    const elTextColor = document.getElementById('txt-color')
+    const meme = getMeme()
+    elTextColor.value = meme.lines[meme.selectedLineIdx].color
+ }
