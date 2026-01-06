@@ -35,3 +35,14 @@ function setImg(id){
     gMeme.selectedImgId = id
 
 }
+
+function setColor(color){
+
+    gMeme.lines[0].color = color
+}
+
+function setFontSize(additionValue){
+    console.log( gMeme.lines[0].size);
+    gMeme.lines[0].size += additionValue
+    
+}

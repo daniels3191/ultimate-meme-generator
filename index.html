@@ -36,16 +36,20 @@
 
         <section class="editor-main-layout hide">
 
-            <button onclick="onChangeToGallery()">Back to gallery</button>
+
 
             <div class="canvas-container">
-                <p>Canvas Container</p>
+                <button onclick="onChangeToGallery()">Back to gallery</button>
                 <canvas width="400" height="400">
 
                 </canvas>
             </div>
             <div class="editor-container">
+                <button onclick="onChangeFontSize('increase')">Increase</button> <br>
+                <button onclick="onChangeFontSize('decrease')">Decrease</button>  <br>
+                <input value="#ffffff" type="color" id="txt-color" name="text-color" onchange="onChangeColor(this)" />
                 <input value="I sometimes eat Falafel" type="text" oninput="onChangeLineText(this)">
+                <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
             </div>
 
         </section>

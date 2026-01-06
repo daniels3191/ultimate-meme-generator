@@ -14,7 +14,7 @@ function onSelectImg(elImg) {
     setImg(elImg.id)
     chnageToEditor()
     resizeCanvas()
-    renderMeme(elImg)
+    renderMeme()
      
 }
 

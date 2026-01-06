@@ -33,27 +33,29 @@ function resizeCanvas() {
 //     drawText('Hello', gElCanvas.width/2, 45)
 // }
 function renderMeme() {
-    
+
     const meme = getMeme()
     const imgIdx = meme.selectedImgId
     const text = meme.lines[0].txt
-    
+    const color = meme.lines[0].color
+    const size = meme.lines[0].size
+
     const elImg = new Image()
     elImg.src = `img/gallery/${imgIdx}.jpg`
-    
+
 
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-    drawText(text, gElCanvas.width / 2, 45)
+    drawText(size, color, text, gElCanvas.width / 2, 45)
 }
 
-function drawText(text, x, y) {
+function drawText(size, color, text, x, y) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'white'
+    gCtx.strokeStyle = color
 
-    gCtx.fillStyle = 'white'
+    gCtx.fillStyle = color
 
-    gCtx.font = '45px Arial'
+    gCtx.font = `${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -61,18 +63,38 @@ function drawText(text, x, y) {
     gCtx.strokeText(text, x, y)
 }
 
-function onChangeLineText(elText){
+function onChangeLineText(elText) {
     setLineTxt(elText.value)
     renderMeme()
 
-    
+
 }
 
-function onChangeToGallery(){
-     const elditor = document.querySelector('.editor-main-layout')
+function onChangeToGallery() {
+    const elditor = document.querySelector('.editor-main-layout')
     elditor.classList.add('hide')
 
     const elgallery = document.querySelector('.gallery-container')
     elgallery.classList.remove('hide')
+
+}
+
+function downloadCanvas(elLink) {
+    elLink.download = 'canvas-image'
+
+    const dataUel = gElCanvas.toDataURL()
+    elLink.href = dataUel
+}
+
+function onChangeColor(elColor) {
+    setColor(elColor.value)
+    renderMeme()
+
+}
+
+function onChangeFontSize(action){
+    const additionValue =  action === 'increase'? 2 : -2
+    setFontSize(additionValue)
+    renderMeme()
 
 }
