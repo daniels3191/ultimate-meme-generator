@@ -12,6 +12,7 @@ function onInit() {
     resizeCanvas()
 
     window.addEventListener('resize', () => resizeCanvas())
+    renderGallery()
 }
 
 
@@ -23,9 +24,7 @@ function resizeCanvas() {
 
 
 }
-function onSelectImg(elImg) {
-    renderMeme(elImg)
-}
+
 
 // function renderMeme(elImg) {
 
@@ -34,13 +33,14 @@ function onSelectImg(elImg) {
 //     drawText('Hello', gElCanvas.width/2, 45)
 // }
 function renderMeme() {
-
+    
     const meme = getMeme()
     const imgIdx = meme.selectedImgId
     const text = meme.lines[0].txt
     
     const elImg = new Image()
     elImg.src = `img/gallery/${imgIdx}.jpg`
+    
 
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -66,4 +66,13 @@ function onChangeLineText(elText){
     renderMeme()
 
     
+}
+
+function onChangeToGallery(){
+     const elditor = document.querySelector('.editor-main-layout')
+    elditor.classList.add('hide')
+
+    const elgallery = document.querySelector('.gallery-container')
+    elgallery.classList.remove('hide')
+
 }

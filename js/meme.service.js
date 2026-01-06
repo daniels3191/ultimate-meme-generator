@@ -13,7 +13,7 @@ lines: [
 txt: 'I sometimes eat Falafel'
 ,
 size: 20,
-color: 'red'
+color: 'white'
 }
 ]
 }
@@ -29,4 +29,9 @@ function setLineTxt(text){
 
 function getImgs(){
     return gImgs
+}
+
+function setImg(id){
+    gMeme.selectedImgId = id
+
 }
