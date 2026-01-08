@@ -6,4 +6,19 @@
     img{
         width: 210px;
     }
+
+    .gallery-nav{
+        input{
+            width: 100%;
+            margin: 30px 0px;
+            padding: 11px 24px;
+            border: 1px solid var(--clr-search-bar) ;
+            border-radius: 20px;
+            font-family: roboto-regular;
+            font-size: 1em;
+            
+            
+            
+        }
+    }
 }

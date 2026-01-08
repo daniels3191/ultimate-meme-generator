@@ -16,9 +16,9 @@
             <div class="logo"><img src="/img/logo/logo.png" alt=""></div>
             <nav class="main-nav ">
                 <ul class="clean-list grid flow-column">
-                    <li><a href="#">Memes</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">About</a></li>
+                    <li onclick="onSelectNav(this)"><a href="#">Memes</a></li>
+                    <li onclick="onSelectNav(this)"><a href="#" onclick="onChangeToGallery()">Gallery</a></li>
+                    <li onclick="onSelectNav(this)"><a href="#">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -26,7 +26,7 @@
     <main class="main-content">
         <div class="gallery-container">
             <nav class="gallery-nav">
-                <div class="img-search">Enter search keyword</div>
+                <input value="" placeholder="Search" type="text" id="" >
             </nav>
             <div class="img-container">
                 <!-- <img src="img/gallery/1.jpg" onclick="onSelectImg(this)" alt=""> -->
@@ -61,7 +61,7 @@
     </main>
 
 </body>
-<!-- <script src="js/main.js"></script> -->
+<script src="js/main.js"></script>
 <script src="js/meme.controller.js"></script>
 <script src="js/meme.service.js"></script>
 <script src="js/gallery.controller.js"></script>

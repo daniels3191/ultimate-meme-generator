@@ -27,3 +27,25 @@
     grid-auto-flow: column;
     grid-template-columns: 1fr 150px;
 }
+
+.gallery-container{
+    .img-container{
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
+    gap: 10px; */
+     column-count: auto;
+     column-width: 210px;
+    column-gap: 25px;
+    padding: 10px;
+
+    img{
+        width: 100%;
+        margin-bottom: 18px;
+        border-radius: 15px;
+        object-fit: cover;
+    
+    }
+    }
+
+    
+}

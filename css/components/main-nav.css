@@ -11,14 +11,28 @@
             place-items: center;
             height: 50px;
             margin-right: 50px;
+
+             &.active{
+                 cursor: default;
+                /* box-shadow: inset 0px -5px 0 var(--clr-primary--1); */
+
+                a{
+                    cursor: default;
+                    color: var(--clr-nav-2);
+                }
+
+            }
             
 
             &:last-of-type{
                  margin-right: 0px;
             }
+
+           
         }
 
        
 
 }
 }
+

@@ -11,6 +11,7 @@ function onInit() {
     resizeCanvas()
 
     window.addEventListener('resize', () => resizeCanvas())
+    seGalleryImg()
     renderGallery()
 }
 

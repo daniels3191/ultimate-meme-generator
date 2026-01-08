@@ -6,5 +6,10 @@
 
     /* colors */
 
-    --clr-nav-1: #989898
+    /* header */
+    --clr-nav-1: #989898;
+    --clr-nav-2: #FF9826;
+
+    /* Gallery */
+    --clr-search-bar: #E5E5E5;
 }
