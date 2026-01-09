@@ -15,3 +15,13 @@
   font-family: roboto-light;
   src: url(/fonts/roboto/Roboto-Light.ttf)
 }
+
+@font-face {
+  font-family: lato-regular;
+  src: url(/fonts/lato/Lato-Regular.ttf)
+}
+
+@font-face {
+  font-family: eurofurence-regular;
+  src: url(/fonts/eurofurence/eurofurence-regular.ttf)
+}

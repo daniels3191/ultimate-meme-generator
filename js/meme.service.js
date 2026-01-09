@@ -59,13 +59,18 @@ function setFontSize(additionValue) {
 
 function addLine() {
     gMeme.lines.push({
-        txt: 'Hello mate'
-        ,
-        size: 26,
-        color: '#ffffff',
-        boxLocation: { x: '', y: '' },
-        boxSize: { width: '', hight: '' }
+        txt:  'Hello mate',
+                size: 20,
+                color: '#ffffff',
+                boxLocation: { x: 214.849609375, y: 32.5  },
+                boxSize: { width: 98.30078125, hight: 25},
+                boxCenter: {x: '' , y: ''},
+                fontFamily: 'roboto-regular',
+                isNewLine: true
+
     })
+
+    
 
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 
@@ -84,7 +89,8 @@ function saveTextProp(lineIdx, rectX, rectY, rectWidth, rectHight) {
     gMeme.lines[lineIdx].boxLocation.y = rectY
     gMeme.lines[lineIdx].boxSize.width = rectWidth
     gMeme.lines[lineIdx].boxSize.hight = rectHight
-
+    gMeme.lines[lineIdx].boxCenter.x = rectX + rectWidth / 2
+    gMeme.lines[lineIdx].boxCenter.y = rectY + rectHight / 2
 }
 
 
@@ -115,13 +121,32 @@ function resetLines() {
         selectedLineIdx: 0,
         lines: [
             {
-                txt: 'I sometimes eat Falafel',
+                txt:  'Hello mate',
                 size: 20,
                 color: '#ffffff',
-                boxLocation: { x: '', y: '' },
-                boxSize: { width: '', hight: '' }
+                boxLocation: { x: 214.849609375, y: 32.5  },
+                boxSize: { width: 98.30078125, hight: 25},
+                boxCenter: {x: '' , y: ''},
+                fontFamily: 'roboto-regular',
+                isNewLine: true
             }
         ]
     }
+        console.log(gMeme.lines);
 
+}
+
+function setFontFamily(fontFamily){
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontFamily    
+    
+}
+
+function  setNewXLocation(){
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    line.boxLocation.x  = 5
+    line.boxCenter.x = line.boxLocation.x + line.boxSize.width / 2
+    console.log(line.boxLocation.x);
+    
+    console.log(line);
+    
 }

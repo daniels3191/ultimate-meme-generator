@@ -24,7 +24,7 @@ function resizeCanvas() {
 }
 
 function renderMeme() {
-    
+
     const meme = getMeme()
     const imgIdx = meme.selectedImgId
 
@@ -33,32 +33,48 @@ function renderMeme() {
 
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-
+    _setLinesChanges()
     renderLines()
 
 }
 
 function renderLines() {
-    
+
     const meme = getMeme()
     const lines = meme.lines
+    
 
     lines.forEach(line => {
+
+        // const boxCenterX = lines[lines.indexOf(line)].boxCenter.x
+        // const x = boxCenterX ? boxCenterX : gElCanvas.width / 2
+
         const y = 45 + lines.indexOf(line) * 40
-        const x = gElCanvas.width / 2
-        drawText(line.size, line.color, line.txt, x, y, lines.indexOf(line), meme.selectedLineIdx)
+        let x = lines[lines.indexOf(line)].boxCenter.x
+        const lineIdx = lines.indexOf(line)
+        const selectedLineIdx = meme.selectedLineIdx
+        // console.log(lineIdx);
+        // console.log(selectedLineIdx);
+        // console.log(line.isNewLine);
+        
+        if (lineIdx === selectedLineIdx && line.isNewLine) {
+            
+            x = gElCanvas.width / 2
+            line.isNewLine = false
+        }
+        drawText(line.fontFamily, line.size, line.color, line.txt, x, y, lines.indexOf(line), meme.selectedLineIdx)
     })
 
 }
 
-function drawText(size, color, text, x, y, lineIdx, selectedLineIdx) {
+function drawText(fontFamily, size, color, text, x, y, lineIdx, selectedLineIdx) {
 
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
 
     gCtx.fillStyle = color
 
-    gCtx.font = `${size}px Arial`
+    gCtx.font = `${size}px ${fontFamily}`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -93,7 +109,7 @@ function drawRectangle(textWidth, textHight, color, x, y, padding, lineIdx) {
     gCtx.strokeRect(rectX, rectY, rectWidth, rectHight)
 
     saveTextProp(lineIdx, rectX, rectY, rectWidth, rectHight)
-    
+
 
 }
 
@@ -107,10 +123,10 @@ function onChangeToGallery() {
     elditor.classList.add('hide')
     const elgallery = document.querySelector('.gallery-container')
     elgallery.classList.remove('hide')
-    if(document.querySelector('.menue-open')){
+    if (document.querySelector('.menue-open')) {
         document.body.classList.toggle('menue-open')
     }
-        
+
 }
 
 function downloadCanvas(elLink) {
@@ -133,15 +149,11 @@ function onChangeFontSize(action) {
 
 function onAddLine() {
     addLine()
-    _switchTextBoxInput()
-    _changeTextColorInput()
     renderMeme()
 }
 
 function onSwitchLine() {
     switchLine()
-    _switchTextBoxInput()
-    _changeTextColorInput()
     renderMeme()
 }
 function _switchTextBoxInput() {
@@ -151,16 +163,42 @@ function _switchTextBoxInput() {
     elTextBox.value = meme.lines[meme.selectedLineIdx].txt
 }
 
-function onDown(ev){
+function onDown(ev) {
     const { offsetX, offsetY } = ev
-    switchLineByClick(offsetX, offsetY )
-    _switchTextBoxInput()
-    _changeTextColorInput()
+    switchLineByClick(offsetX, offsetY)
     renderMeme()
 }
 
- function _changeTextColorInput(){
+function _changeTextColorInput() {
     const elTextColor = document.getElementById('txt-color')
     const meme = getMeme()
     elTextColor.value = meme.lines[meme.selectedLineIdx].color
- }
+}
+
+function onChangeFontFemily(elFontFamily) {
+    setFontFamily(elFontFamily.value)
+    renderMeme()
+}
+
+function _changeFontFamilyInput() {
+    const elTextColor = document.getElementById('font-family')
+    const meme = getMeme()
+
+    elTextColor.value = meme.lines[meme.selectedLineIdx].fontFamily
+}
+
+function _setLinesChanges() {
+    _switchTextBoxInput()
+    _changeTextColorInput()
+    _changeFontFamilyInput()
+}
+
+function onTextToLeft() {
+
+    setNewXLocation()
+    renderMeme()
+
+
+
+
+}
