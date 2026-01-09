@@ -107,6 +107,10 @@ function onChangeToGallery() {
     elditor.classList.add('hide')
     const elgallery = document.querySelector('.gallery-container')
     elgallery.classList.remove('hide')
+    if(document.querySelector('.menue-open')){
+        document.body.classList.toggle('menue-open')
+    }
+        
 }
 
 function downloadCanvas(elLink) {

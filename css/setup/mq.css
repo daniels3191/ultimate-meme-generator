@@ -7,6 +7,84 @@
 
         }
     }
+    .btn-toggle-menue{
+         body.menue-open & {
+            color: var(--clr-header--1);
+            z-index: 1;
+            
+        }
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 100dvh;
+        background-color: var(--clr-nav-2);
+
+        transform: translatex(100%);
+
+        body.menue-open & {
+            transform: translatex(0%);
+        }
+
+        ul {
+            height: 100dvh;
+            align-content: center;
+
+            &.nav-list {
+                grid-auto-flow: row;
+
+            }
+
+
+
+            li {
+                height: 167px;
+                font-family: roboto-light, sans-serif;
+                font-size: 1.5em;
+                color: var(--clr-header--1);
+                margin-right: 0px;
+
+                &:nth-child(2) {
+                    position: relative;
+                }
+
+                &:nth-child(2)::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    width: 21px;
+                    height: 1px;
+                    background-color: var(--clr-header--1);
+
+                }
+
+                &:nth-child(2)::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    width: 21px;
+                    height: 1px;
+                    background-color: var(--clr-header--1);
+
+                }
+
+                &.active {
+
+                    a {
+
+                        font-family: roboto-medium, sans-serif;
+                        color: var(--clr-header--1);
+                    }
+
+                }
+            }
+
+
+        }
+    }
 
 }
 
@@ -44,6 +122,7 @@
                     .canvas-container {
                         grid-row: 3 / 4;
                         margin: 0px;
+                        max-height: 50%;
                     }
 
                     button {
@@ -101,6 +180,11 @@
 
 
     }
+
+     .btn-toggle-menue{
+            display: none;
+            
+        }
 
 
 
