@@ -1,0 +1,46 @@
+.editor-main-layout {
+
+   
+
+
+    .canvas-area {
+        /* height: 100vh; */
+         
+         background-color: var(--clr-gallery--1);
+      
+
+        button {
+            /* margin-left: 0px; */
+            /* margin-bottom: 116px; */
+            /* cursor: pointer; */
+
+            /* Hide the button on mobile */
+            /* transform: translatex(-200%); */
+        }
+
+        .canvas-container {
+            
+            width: 100%;
+
+            border: 0px;
+            margin: 50px auto;
+
+            canvas {
+                display: block;
+
+                border-radius: 10px;
+
+            }
+
+
+        }
+    }
+
+
+    .editor-area {
+
+background-color: var(--clr-editor--1);
+
+    }
+
+}

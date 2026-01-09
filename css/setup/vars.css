@@ -2,11 +2,13 @@
     /* backround color */
     --clr-gallery--1: #f8f8f8;
     --clr-header--1: #ffffff;
+    --clr-editor--1: #ffffff;
 
 
     /* colors */
 
     /* header */
+    --clr-header-2: #dbdbdb;
     --clr-nav-1: #989898;
     --clr-nav-2: #FF9826;
 

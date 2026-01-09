@@ -1,6 +1,6 @@
 .header{
     background-color: var(--clr-header--1);
-
+    box-shadow: inset 0px -1px 0 var( --clr-header-2);
     img{
         width: 152px;
         height: 32px;

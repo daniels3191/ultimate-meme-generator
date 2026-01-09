@@ -23,7 +23,7 @@
             </nav>
         </div>
     </header>
-    <main class="main-content">
+    <main class="main-content main-layout full full-mobile">
         <div class="gallery-container">
             <nav class="gallery-nav">
                 <input value="" placeholder="Search" type="text" id="" >
@@ -34,18 +34,18 @@
         </div>
 
 
-        <section class="editor-main-layout hide">
-
-
-
+        <section class="editor-main-layout main-layout full full-mobile hide">
+            <div class="canvas-area main-layout full-mobile">
+            <button onclick="onChangeToGallery()">Back to gallery</button>
             <div class="canvas-container">
-                <button onclick="onChangeToGallery()">Back to gallery</button>
                 <canvas width="400" height="400"
                 onmousedown="onDown(event)"
                 >
 
                 </canvas>
             </div>
+            </div>
+            <div class="editor-area main-layout full full-mobile">
             <div class="editor-container">
                 <button onclick="onSwitchLine()">Switch line</button> <br>
                 <button onclick="onAddLine()">Add line</button> <br>
@@ -54,6 +54,7 @@
                 <input value="#ffffff" type="color" id="txt-color" name="text-color" onchange="onChangeColor(this)" />
                 <input value="I sometimes eat Falafel" placeholder="Write somthing funny" type="text" id="text-box"  oninput="onChangeLineText(this)">
                 <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
+            </div>
             </div>
 
         </section>
