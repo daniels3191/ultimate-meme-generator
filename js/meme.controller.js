@@ -46,22 +46,22 @@ function renderLines() {
 
     lines.forEach(line => {
 
-        // const boxCenterX = lines[lines.indexOf(line)].boxCenter.x
-        // const x = boxCenterX ? boxCenterX : gElCanvas.width / 2
-
         const y = 45 + lines.indexOf(line) * 40
         let x = lines[lines.indexOf(line)].boxCenter.x
+
         const lineIdx = lines.indexOf(line)
         const selectedLineIdx = meme.selectedLineIdx
-        // console.log(lineIdx);
-        // console.log(selectedLineIdx);
-        // console.log(line.isNewLine);
-        
+
+        //New line always added to the center (and centered line)
         if (lineIdx === selectedLineIdx && line.isNewLine) {
             
             x = gElCanvas.width / 2
             line.isNewLine = false
+        //when align to the right I dont have the canvas width on the service
+        }else if(line.boxLocation.x === -1){
+            x = gElCanvas.width - line.boxSize.width/2
         }
+
         drawText(line.fontFamily, line.size, line.color, line.txt, x, y, lines.indexOf(line), meme.selectedLineIdx)
     })
 
@@ -193,12 +193,8 @@ function _setLinesChanges() {
     _changeFontFamilyInput()
 }
 
-function onTextToLeft() {
-
-    setNewXLocation()
+function onTextAlign(location) {
+    setNewXLocation(location)
     renderMeme()
-
-
-
 
 }

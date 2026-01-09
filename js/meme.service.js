@@ -43,8 +43,6 @@ function getImgs() {
 function setImg(id) {
     resetLines()
     gMeme.selectedImgId = id
-
-
 }
 
 function setColor(color) {
@@ -70,12 +68,7 @@ function addLine() {
 
     })
 
-    
-
     gMeme.selectedLineIdx = gMeme.lines.length - 1
-
-
-
 }
 
 function switchLine() {
@@ -98,9 +91,6 @@ function switchLineByClick(offsetX, offsetY) {
 
     const lineIdx = gMeme.lines.findIndex(line => isLineClicked(offsetX, offsetY, line))
     if (lineIdx >= 0) gMeme.selectedLineIdx = lineIdx
-
-
-
 }
 
 function isLineClicked(offsetX, offsetY, line) {
@@ -132,8 +122,6 @@ function resetLines() {
             }
         ]
     }
-        console.log(gMeme.lines);
-
 }
 
 function setFontFamily(fontFamily){
@@ -141,12 +129,18 @@ function setFontFamily(fontFamily){
     
 }
 
-function  setNewXLocation(){
+function  setNewXLocation(location){
+    
     const line = gMeme.lines[gMeme.selectedLineIdx]
+
+    if(location === 'L'){
     line.boxLocation.x  = 5
     line.boxCenter.x = line.boxLocation.x + line.boxSize.width / 2
-    console.log(line.boxLocation.x);
-    
-    console.log(line);
-    
+    }else if(location === 'M'){
+
+        gMeme.lines[gMeme.selectedLineIdx].isNewLine = true
+    }else{
+
+        line.boxLocation.x  = -1
+    }
 }

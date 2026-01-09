@@ -46,12 +46,15 @@
             </div>
             <div class="editor-area main-layout full full-mobile">
                 <div class="editor-container">
-                    <button onclick="onTextToLeft()">Text to the left</button><br>
+                    <button onclick="onTextAlign('L')">Text to the left</button><br>
+                    <button onclick="onTextAlign('M')">Text to the center</button><br>
+                     <button onclick="onTextAlign('R')">Text to the right</button><br>
+
                     <select id="font-family" name="font-family" onchange="onChangeFontFemily(this)">
                         <option value="roboto-regular" selected>roboto-regular</option>
-                        <option value="roboto-light" >roboto-light</option>
-                        <option value="lato-regular" >lato-regular</option>
-                        <option value="eurofurence-regular" >eurofurence-regular</option>
+                        <option value="roboto-light">roboto-light</option>
+                        <option value="lato-regular">lato-regular</option>
+                        <option value="eurofurence-regular">eurofurence-regular</option>
                     </select><br>
                     <button onclick="onSwitchLine()">Switch line</button> <br>
                     <button onclick="onAddLine()">Add line</button> <br>
