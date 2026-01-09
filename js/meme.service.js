@@ -57,14 +57,14 @@ function setFontSize(additionValue) {
 
 function addLine() {
     gMeme.lines.push({
-        txt:  'Hello mate',
-                size: 20,
-                color: '#ffffff',
-                boxLocation: { x: 214.849609375, y: 32.5  },
-                boxSize: { width: 98.30078125, hight: 25},
-                boxCenter: {x: '' , y: ''},
-                fontFamily: 'roboto-regular',
-                isNewLine: true
+        txt: 'Hello mate',
+        size: 20,
+        color: '#ffffff',
+        boxLocation: { x: 214.849609375, y: 32.5 },
+        boxSize: { width: 98.30078125, height: 25 },
+        boxCenter: { x: '', y: '' },
+        fontFamily: 'roboto-regular',
+        isNewLine: true
 
     })
 
@@ -111,12 +111,12 @@ function resetLines() {
         selectedLineIdx: 0,
         lines: [
             {
-                txt:  'Hello mate',
+                txt: 'Hello mate',
                 size: 20,
                 color: '#ffffff',
-                boxLocation: { x: 214.849609375, y: 32.5  },
-                boxSize: { width: 98.30078125, hight: 25},
-                boxCenter: {x: '' , y: ''},
+                boxLocation: { x: 214.849609375, y: 32.5 },
+                boxSize: { width: 98.30078125, height: 25 },
+                boxCenter: { x: '', y: '' },
                 fontFamily: 'roboto-regular',
                 isNewLine: true
             }
@@ -124,23 +124,50 @@ function resetLines() {
     }
 }
 
-function setFontFamily(fontFamily){
-    gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontFamily    
-    
+function setFontFamily(fontFamily) {
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontFamily
+
 }
 
-function  setNewXLocation(location){
-    
+function setNewXLocation(location) {
+
     const line = gMeme.lines[gMeme.selectedLineIdx]
 
-    if(location === 'L'){
-    line.boxLocation.x  = 5
-    line.boxCenter.x = line.boxLocation.x + line.boxSize.width / 2
-    }else if(location === 'M'){
+    if (location === 'L') {
+        line.boxLocation.x = 5
+        line.boxCenter.x = line.boxLocation.x + line.boxSize.width / 2
+    } else if (location === 'M') {
 
-        gMeme.lines[gMeme.selectedLineIdx].isNewLine = true
-    }else{
+        line.boxLocation.x = -10
+    } else {
 
-        line.boxLocation.x  = -1
+        line.boxLocation.x = -1
     }
+}
+
+function moveLine(direction) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+
+
+
+    if (direction === 'up') {
+        if (line.boxLocation.y <= 11) return
+
+        line.boxCenter.y -= 10
+    }
+    else if (direction === 'down') {
+        line.boxCenter.y += 10
+    }
+
+}
+
+function deleteLine() {
+    if(gMeme.lines.length <= 1) return
+    const removed = gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    if(gMeme.selectedLineIdx >= 1) gMeme.selectedLineIdx--
+    else gMeme.selectedLineIdx = 0
+
+    console.log(removed);
+    
+
 }

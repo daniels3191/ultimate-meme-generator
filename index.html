@@ -46,9 +46,12 @@
             </div>
             <div class="editor-area main-layout full full-mobile">
                 <div class="editor-container">
+                    <button onclick="onDeleteLine()">Delete</button><br>
+                    <button onclick="onLineUpDown('down')">Line Down</button><br>
+                    <button onclick="onLineUpDown('up')">Line up</button><br>
                     <button onclick="onTextAlign('L')">Text to the left</button><br>
                     <button onclick="onTextAlign('M')">Text to the center</button><br>
-                     <button onclick="onTextAlign('R')">Text to the right</button><br>
+                    <button onclick="onTextAlign('R')">Text to the right</button><br>
 
                     <select id="font-family" name="font-family" onchange="onChangeFontFemily(this)">
                         <option value="roboto-regular" selected>roboto-regular</option>

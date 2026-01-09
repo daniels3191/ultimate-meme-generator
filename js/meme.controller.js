@@ -46,20 +46,30 @@ function renderLines() {
 
     lines.forEach(line => {
 
-        const y = 45 + lines.indexOf(line) * 40
+        let y = lines[lines.indexOf(line)].boxCenter.y
         let x = lines[lines.indexOf(line)].boxCenter.x
 
         const lineIdx = lines.indexOf(line)
         const selectedLineIdx = meme.selectedLineIdx
+  
+        //Check if we dont have overflow on y axice when moving down the lign 
+        if ((y + line.boxSize.height) >= gElCanvas.height) {
+            y -= 10
+        }
 
         //New line always added to the center (and centered line)
         if (lineIdx === selectedLineIdx && line.isNewLine) {
-            
+            y = 45 + lines.indexOf(line) * 40
             x = gElCanvas.width / 2
             line.isNewLine = false
+
         //when align to the right I dont have the canvas width on the service
         }else if(line.boxLocation.x === -1){
             x = gElCanvas.width - line.boxSize.width/2
+
+        //when align to the Center I dont have the canvas width on the service
+        }else if (line.boxLocation.x === -10) {
+            x = gElCanvas.width / 2
         }
 
         drawText(line.fontFamily, line.size, line.color, line.txt, x, y, lines.indexOf(line), meme.selectedLineIdx)
@@ -197,4 +207,15 @@ function onTextAlign(location) {
     setNewXLocation(location)
     renderMeme()
 
+}
+
+function onLineUpDown(direction){
+    moveLine(direction)
+    renderMeme()
+
+}
+
+function onDeleteLine(){
+    deleteLine()
+    renderMeme()
 }
