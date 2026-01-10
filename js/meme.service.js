@@ -3,7 +3,6 @@
 
 var gImgs
 var gMeme
-// var gKeywordSearchCountMap = {'funny': 12,'cat': 16, 'baby': 2}
 function seGalleryImg() {
     gImgs = [
         { id: 1, url: 'img/gallery/1.jpg', keywords: ['funny', 'humman'] },
@@ -136,7 +135,7 @@ function setNewXLocation(location) {
     if (location === 'L') {
         line.boxLocation.x = 5
         line.boxCenter.x = line.boxLocation.x + line.boxSize.width / 2
-    } else if (location === 'M') {
+    } else if (location === 'C') {
 
         line.boxLocation.x = -10
     } else {

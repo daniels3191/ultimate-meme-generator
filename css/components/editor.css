@@ -1,6 +1,4 @@
 .editor-main-layout {
-
-
     .canvas-area {
 
         background-color: var(--clr-gallery--1);
@@ -20,9 +18,41 @@
     }
 
     .editor-area {
+         font-family: roboto-regular;
 
         background-color: var(--clr-editor--1);
+        
+
+        .color-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .edit-container-header{
+
+            margin-top: 25px;
+            margin-bottom: 20px;
+
+            .line-edit{
+                column-gap:23px ;
+            }
+
+        }
+
+        .share-btn {
+
+            font-size: 1.25em;
+            text-transform: uppercase;
+            color: var(--clr-editor--1);
+            background-color: var(--clr-nav-2);
+            border-radius: 35px;
+        }
 
     }
+
+
 
 }

@@ -42,7 +42,7 @@ function renderLines() {
 
     const meme = getMeme()
     const lines = meme.lines
-    
+
 
     lines.forEach(line => {
 
@@ -51,7 +51,7 @@ function renderLines() {
 
         const lineIdx = lines.indexOf(line)
         const selectedLineIdx = meme.selectedLineIdx
-  
+
         //Check if we dont have overflow on y axice when moving down the lign 
         if ((y + line.boxSize.height) >= gElCanvas.height) {
             y -= 10
@@ -63,12 +63,12 @@ function renderLines() {
             x = gElCanvas.width / 2
             line.isNewLine = false
 
-        //when align to the right I dont have the canvas width on the service
-        }else if(line.boxLocation.x === -1){
-            x = gElCanvas.width - line.boxSize.width/2
+            //when align to the right I dont have the canvas width on the service
+        } else if (line.boxLocation.x === -1) {
+            x = gElCanvas.width - line.boxSize.width / 2
 
-        //when align to the Center I dont have the canvas width on the service
-        }else if (line.boxLocation.x === -10) {
+            //when align to the Center I dont have the canvas width on the service
+        } else if (line.boxLocation.x === -10) {
             x = gElCanvas.width / 2
         }
 
@@ -120,7 +120,6 @@ function drawRectangle(textWidth, textHight, color, x, y, padding, lineIdx) {
 
     saveTextProp(lineIdx, rectX, rectY, rectWidth, rectHight)
 
-
 }
 
 function onChangeLineText(elText) {
@@ -134,9 +133,10 @@ function onChangeToGallery() {
     const elgallery = document.querySelector('.gallery-container')
     elgallery.classList.remove('hide')
     if (document.querySelector('.menue-open')) {
-        document.body.classList.toggle('menue-open')
+       const elMenue = document.body.classList.toggle('menue-open')
+       const elBtnMenue = document.querySelector('.btn-toggle-menue')
+       elBtnMenue.innerText = elMenue ? 'X' : '\u2630'
     }
-
 }
 
 function downloadCanvas(elLink) {
@@ -147,10 +147,11 @@ function downloadCanvas(elLink) {
 }
 
 function onChangeColor(elColor) {
+    console.log(elColor.value);
+
     setColor(elColor.value)
     renderMeme()
 }
-
 function onChangeFontSize(action) {
     const additionValue = action === 'increase' ? 2 : -2
     setFontSize(additionValue)
@@ -179,12 +180,6 @@ function onDown(ev) {
     renderMeme()
 }
 
-function _changeTextColorInput() {
-    const elTextColor = document.getElementById('txt-color')
-    const meme = getMeme()
-    elTextColor.value = meme.lines[meme.selectedLineIdx].color
-}
-
 function onChangeFontFemily(elFontFamily) {
     setFontFamily(elFontFamily.value)
     renderMeme()
@@ -199,7 +194,6 @@ function _changeFontFamilyInput() {
 
 function _setLinesChanges() {
     _switchTextBoxInput()
-    _changeTextColorInput()
     _changeFontFamilyInput()
 }
 
@@ -209,13 +203,13 @@ function onTextAlign(location) {
 
 }
 
-function onLineUpDown(direction){
+function onLineUpDown(direction) {
     moveLine(direction)
     renderMeme()
 
 }
 
-function onDeleteLine(){
+function onDeleteLine() {
     deleteLine()
     renderMeme()
 }

@@ -41,3 +41,8 @@ button {
     color: inherit;
     border: 0;
 }
+
+.fa{
+    width: 15px;
+    height: 15px;
+}
