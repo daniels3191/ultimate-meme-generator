@@ -3,6 +3,11 @@
 
         background-color: var(--clr-gallery--1);
 
+        .to-gallery-btn {
+            font-family: roboto-regular;
+            color: var(--clr-nav-1);
+        }
+
         .canvas-container {
 
             width: 100%;
@@ -14,14 +19,15 @@
                 border-radius: 10px;
             }
 
+
         }
     }
 
     .editor-area {
-         font-family: roboto-regular;
+        font-family: roboto-regular;
 
         background-color: var(--clr-editor--1);
-        
+
 
         .color-input {
             opacity: 0;
@@ -31,13 +37,17 @@
             padding: 0;
         }
 
-        .edit-container-header{
+        .edit-container-header {
 
             margin-top: 25px;
             margin-bottom: 20px;
 
-            .line-edit{
-                column-gap:23px ;
+            .line-edit {
+                column-gap: 23px;
+            }
+
+            h2 {
+                text-transform: capitalize
             }
 
         }

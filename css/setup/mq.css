@@ -104,7 +104,7 @@
 
             h2 {
                 font-size: 1.25em;
-                text-transform: capitalize
+   
             }
             .line-edit {
                 width: 140px;
@@ -179,14 +179,18 @@
                 .canvas-area {
                     grid-column: 1 / 3;
                     display: grid;
+                    grid-template-columns:20px 1fr minmax(250px, 750px) 1fr 20px ;
                     grid-template-rows: auto 115px auto 1fr;
 
                     background-color: var(--clr-editor--1);
 
                     .canvas-container {
+                        grid-column: 3 / 4;
                         grid-row: 3 / 4;
-                        margin: 0px;
                         max-height: 50%;
+                        max-width: 100%;
+                        margin: 0px;
+        
                     }
 
                     button {
@@ -205,6 +209,7 @@
                 .editor-area {
                     grid-column: 3 / 5;
                     grid-row: 1;
+                    max-width: 100%;
                     background-color: var(--clr-gallery--1);
                 }
             }

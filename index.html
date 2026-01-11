@@ -21,7 +21,7 @@
                     <li onclick="onSelectNav(this)"><a href="#">About</a></li>
                 </ul>
             </nav>
-            <button onclick="onToggleMenue(this)" class="btn-toggle-menue">&#9776</button>
+            <button onclick="onToggleMenue(this)" class="btn-toggle-menue pointer">&#9776</button>
         </div>
     </header>
     <main class="main-content main-layout full full-mobile">
@@ -37,7 +37,7 @@
 
         <section class="editor-main-layout main-layout full full-mobile hide">
             <div class="canvas-area main-layout full-mobile">
-                <button onclick="onChangeToGallery()">Back to gallery</button>
+                <button class="to-gallery-btn" onclick="onChangeToGallery()">Back to gallery</button>
                 <div class="canvas-container">
                     <canvas width="400" height="400" onmousedown="onDown(event)">
 
@@ -50,11 +50,11 @@
                         <h2>Edit text lines</h2>
 
                         <ul class="line-edit grid flow-column space-around align-center clean-list  ">
-                            <li> <button class="fa switch" onclick="onSwitchLine()"></button></li>
+                            <li> <button class="fa switch pointer" onclick="onSwitchLine()"></button></li>
                             <li><a href="#" class="fa download" onclick="downloadCanvas(this)" download="file-name"></a>
                             </li>
-                            <li> <button class="fa add" onclick="onAddLine()"></button> </li>
-                            <li> <button class="fa delete" onclick="onDeleteLine()"></button></li>
+                            <li> <button class="fa add pointer" onclick="onAddLine()"></button> </li>
+                            <li> <button class="fa delete pointer" onclick="onDeleteLine()"></button></li>
                         </ul>
                     </div>
 
@@ -90,18 +90,18 @@
                         type="text" id="text-box" oninput="onChangeLineText(this)">
 
                     <div class="imoji-container">
-                        <span class="imj">🤮</span>
-                        <span class="imj">😥</span>
-                        <span class="imj">😈</span>
-                        <span class="imj">👻</span>
-                        <span class="imj">😱</span>
-                        <span class="imj">👽</span>
-                        <span class="imj">🤬</span>
-                        <span class="imj">🤠</span>
-                        <span class="imj">💩</span>
-                        <span class="imj"></span>
-                        <span class="imj">💩</span>
-                        <span class="imj">💩</span>
+                        <span class="imj pointer">🤮</span>
+                        <span class="imj pointer">😥</span>
+                        <span class="imj pointer">😈</span>
+                        <span class="imj pointer">👻</span>
+                        <span class="imj pointer">😱</span>
+                        <span class="imj pointer">👽</span>
+                        <span class="imj pointer">🤬</span>
+                        <span class="imj pointer">🤠</span>
+                        <span class="imj pointer">💩</span>
+                        <span class="imj pointer"></span>
+                        <span class="imj pointer">💩</span>
+                        <span class="imj pointer">💩</span>
                     </div>
                     <button class="share-btn"> Share</button>
 
