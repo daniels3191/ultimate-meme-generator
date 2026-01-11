@@ -1,38 +1,42 @@
 /* Roboto */
 
-
+/* Roboto */
 @font-face {
-  font-family: roboto-medium;
-  src: url(/fonts/roboto/Roboto-Medium.ttf) 
+  font-family: "roboto-medium";
+  src: url("../../fonts/roboto/Roboto-Medium.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: roboto-regular;
-  src: url(/fonts/roboto/Roboto-Regular.ttf) format("woff2");
+  font-family: "roboto-regular";
+  src: url("../../fonts/roboto/Roboto-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: roboto-light;
-  src: url(/fonts/roboto/Roboto-Light.ttf) format("woff2");
+  font-family: "roboto-light";
+  src: url("../../fonts/roboto/Roboto-Light.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: lato-regular;
-  src: url(/fonts/lato/Lato-Regular.ttf) format("woff2");
+  font-family: "lato-regular";
+  src: url("../../fonts/lato/Lato-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: eurofurence-regular;
-  src: url(/fonts/eurofurence/eurofurence-regular.ttf) format("woff2");
+  font-family: "eurofurence-regular";
+  src: url("../../fonts/eurofurence/eurofurence-regular.ttf") format("truetype");
+  font-display: swap;
 }
 
-/* Font Awsome */
-
+/* Font Awesome */
 @font-face {
   font-family: "fa";
-  src: url("./fonts/fa/fa-solid-900.ttf") format("truetype");
+  src: url("../../fonts/fa/fa-solid-900.ttf") format("truetype");
+  font-display: swap;
 }
-
 /* fa helpers */
 
 .fa::before{
