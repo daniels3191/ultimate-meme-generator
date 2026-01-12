@@ -32,7 +32,9 @@ function renderMeme() {
     elImg.src = `img/gallery/${imgIdx}.jpg`
 
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+
+    elImg.onload = () =>
+        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
     _setLinesChanges()
     renderLines()
 
@@ -133,9 +135,9 @@ function onChangeToGallery() {
     const elgallery = document.querySelector('.gallery-container')
     elgallery.classList.remove('hide')
     if (document.querySelector('.menue-open')) {
-       const elMenue = document.body.classList.toggle('menue-open')
-       const elBtnMenue = document.querySelector('.btn-toggle-menue')
-       elBtnMenue.innerText = elMenue ? 'X' : '\u2630'
+        const elMenue = document.body.classList.toggle('menue-open')
+        const elBtnMenue = document.querySelector('.btn-toggle-menue')
+        elBtnMenue.innerText = elMenue ? 'X' : '\u2630'
     }
 }
 
