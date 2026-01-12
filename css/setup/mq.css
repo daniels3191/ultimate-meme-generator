@@ -2,22 +2,18 @@
 
 @media (max-width: 740px) {
 
-
     .btn-toggle-menue {
         body.menue-open & {
             color: var(--clr-header--1);
             z-index: 1;
-
         }
     }
 
     .canvas-area {
         button {
             display: none;
-
         }
     }
-
 
     .main-nav {
         position: fixed;
@@ -59,7 +55,6 @@
                     width: 21px;
                     height: 1px;
                     background-color: var(--clr-header--1);
-
                 }
 
                 &:nth-child(2)::after {
@@ -69,7 +64,6 @@
                     width: 21px;
                     height: 1px;
                     background-color: var(--clr-header--1);
-
                 }
 
                 &.active {
@@ -79,11 +73,8 @@
                         font-family: roboto-medium, sans-serif;
                         color: var(--clr-header--1);
                     }
-
                 }
             }
-
-
         }
     }
 
@@ -104,17 +95,15 @@
 
             h2 {
                 font-size: 1.25em;
-   
             }
+
             .line-edit {
                 width: 140px;
             }
-
         }
 
         .text-editing-container {
             grid-area: e;
-
 
             .font-family-editing {
                 width: 100%;
@@ -123,7 +112,6 @@
                 padding: 0px 15px;
             }
         }
-
 
         .text-input {
             grid-area: t;
@@ -140,7 +128,6 @@
             font-size: 2.5em;
             padding-top: 15px ;
             padding-bottom: 15px ;
-
         }
 
         .share-btn {
@@ -155,7 +142,6 @@
 /* Medium */
 @media (min-width: 740px) {
     .main-layout {
-
         grid-template-columns: 20px 1fr 550px 20px;
         grid-template-rows: auto;
 
@@ -190,7 +176,6 @@
                         max-height: 50%;
                         max-width: 100%;
                         margin: 0px;
-        
                     }
 
                     button {
@@ -200,10 +185,7 @@
                         padding: 0;
                         margin: 0;
                         cursor: pointer;
-
                     }
-
-
                 }
 
                 .editor-area {
@@ -225,7 +207,6 @@
         display: grid;
         grid-template-columns: 30px 1fr 30px;
 
-
         padding-top: 30px;
 
         .editor-container {
@@ -246,17 +227,11 @@
             /* Show the button on desktop */
             transform: translatex(0%);
         }
-
-
     }
 
     .btn-toggle-menue {
         display: none;
-
     }
-
-
-
 
     .gallery-container {
         .img-container {
@@ -269,11 +244,8 @@
             img {
                 margin-bottom: 18px;
                 border-radius: 15px;
-
             }
         }
-
-
     }
 
     .editor-container {
@@ -293,8 +265,6 @@
             h2 {
                 font-size: 1.5em;
             }
-
-
         }
 
         .text-editing-container {
@@ -306,7 +276,6 @@
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             background-color: var(--clr-editor--1);
-
 
             .font-family-editing {
 
@@ -341,11 +310,9 @@
         .imoji-container {
             grid-area: i;
             font-size: 3.5em;
-
         }
 
         .share-btn {
-
             grid-area: b;
 
             position: absolute;
@@ -354,18 +321,12 @@
 
             width: 140px;
             height: 54px;
-
-
         }
     }
-
 
     .hide {
         display: none;
     }
-
-
-
 }
 
 /* Large */
