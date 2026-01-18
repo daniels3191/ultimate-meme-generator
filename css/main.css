@@ -2,6 +2,11 @@
 @import url(./setup/vars.css);
 @import url(./setup/topography.css);
 
+/* Basics */
+@import url(./basics/base.css);
+@import url(./basics/layout.css);
+@import url(./basics/helpers.css);
+
 /* Components */
 @import url(./components/header.css);
 @import url(./components/gallery.css);
@@ -12,10 +17,6 @@
 
 
 
-/* Basics */
-@import url(./basics/base.css);
-@import url(./basics/layout.css);
-@import url(./basics/helpers.css);
 
 /* MQ */
 @import url(./setup/mq.css);

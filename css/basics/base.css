@@ -38,9 +38,14 @@ button {
     font: inherit;
     color: inherit;
     border: 0;
+    padding: 0;
 }
 
-.fa{
+.fa {
     width: 15px;
     height: 15px;
+}
+
+.hide {
+    display: none;
 }

@@ -24,7 +24,7 @@
             <button onclick="onToggleMenue(this)" class="btn-toggle-menue pointer">&#9776</button>
         </div>
     </header>
-    <main class="main-content main-layout full full-mobile">
+    <main class="main-content main-layout full">
         <div class="gallery-container">
             <nav class="gallery-nav">
                 <input value="" placeholder="Search" type="text" id="">
@@ -35,16 +35,17 @@
         </div>
 
 
-        <section class="editor-main-layout main-layout full full-mobile hide">
-            <div class="canvas-area main-layout full-mobile">
-                <button class="to-gallery-btn" onclick="onChangeToGallery()">Back to gallery</button>
-                <div class="canvas-container">
-                    <canvas width="400" height="400" onmousedown="onDown(event)">
+        <section class=" main-layout editor-main-layout  full hide">
+            <div class="canvas-area main-layout full">
+                    <button class="to-gallery-btn hide" onclick="onChangeToGallery()">Back to gallery</button>
+                    <div class="canvas-container">
+                        <canvas width="400" height="400" onmousedown="onDown(event)">
 
-                    </canvas>
-                </div>
+                        </canvas>
+                    </div>
+
             </div>
-            <div class="editor-area main-layout full full-mobile">
+            <div class="editor-area main-layout full">
                 <div class="editor-container">
                     <div class="edit-container-header grid space-between flow-column align-center">
                         <h2>Edit text lines</h2>
@@ -66,7 +67,7 @@
                             <option value="lato-regular">lato-regular</option>
                             <option value="eurofurence-regular">eurofurence-regular</option>
                         </select>
-                        <ul class=" text-edit grid space-between flow-column align-center clean-list">
+                        <ul class=" text-edit  clean-list">
                             <li> <button class="fa minus" onclick="onChangeFontSize('decrease')"></button></li>
                             <li><button class="fa plus" onclick="onChangeFontSize('increase')"></button></li>
 
@@ -116,8 +117,8 @@
 
 </body>
 <script src="js/main.js"></script>
-<script src="js/meme.controller.js"></script>
 <script src="js/meme.service.js"></script>
+<script src="js/meme.controller.js"></script>
 <script src="js/gallery.controller.js"></script>
 
 

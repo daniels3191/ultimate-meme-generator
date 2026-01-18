@@ -2,19 +2,6 @@
 
 @media (max-width: 740px) {
 
-    .btn-toggle-menue {
-        body.menue-open & {
-            color: var(--clr-header--1);
-            z-index: 1;
-        }
-    }
-
-    .canvas-area {
-        button {
-            display: none;
-        }
-    }
-
     .main-nav {
         position: fixed;
         top: 0;
@@ -73,37 +60,33 @@
                         font-family: roboto-medium, sans-serif;
                         color: var(--clr-header--1);
                     }
+
+
                 }
             }
         }
     }
 
-    .editor-container {
-        display: grid;
-        grid-template-rows: 70px 70px 70px 125px 70px;
-        grid-template-areas:
-            "h"
-            "e"
-            "t"
-            "i"
-            "b";
+    .btn-toggle-menue {
 
-        .edit-container-header {
-            grid-area: h;
+          body.menue-open & {
+                   z-index: 10;
 
-            display: grid;
-
-            h2 {
-                font-size: 1.25em;
-            }
-
-            .line-edit {
-                width: 140px;
-            }
+        font-family: roboto-light, sans-serif;
+        font-size: 1.5em;
+        color: var(--clr-header--1);
+        margin-top: 15px;
         }
 
+
+
+
+    }
+
+
+    .editor-container {
+
         .text-editing-container {
-            grid-area: e;
 
             .font-family-editing {
                 width: 100%;
@@ -111,12 +94,20 @@
                 margin-bottom: 10px;
                 padding: 0px 15px;
             }
+
+            .text-edit {
+                display: grid;
+                grid-auto-flow: column;
+                place-content: center;
+                gap: 30px;
+                margin-bottom: 10px;
+            }
         }
 
         .text-input {
-            grid-area: t;
+            width: 100%;
+            height: 56px;
             font-size: 1em;
-
             padding: 0px 20px;
             border: 1px solid #DEDEDE;
             border-left: 0;
@@ -124,114 +115,118 @@
         }
 
         .imoji-container {
-            grid-area: i;
             font-size: 2.5em;
-            padding-top: 15px ;
-            padding-bottom: 15px ;
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
 
         .share-btn {
-            grid-area: b;
             place-self: center;
+            bottom: 25px;
+
+
             width: 100%;
             height: 42px;
         }
     }
 }
 
+
+
 /* Medium */
 @media (min-width: 740px) {
-    .main-layout {
-        grid-template-columns: 20px 1fr 550px 20px;
-        grid-template-rows: auto;
 
-        >* {
-            &:not(.full) {
-                grid-column: 2 / 4;
-            }
+    .editor-main-layout {
 
-            &.full {
-                grid-column: 1 / -1;
+        grid-template-columns: 1fr minmax(450px, 1fr);
+
+        .canvas-area {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+
+            display: grid;
+            grid-template-columns: 70px 1fr 70px;
+
+            background-color: #ffffff;
+
+            .canvas-container {
+                grid-column: 2;
             }
         }
 
+        .editor-area {
 
-        &.editor-main-layout {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+            background-color: #f8f8f8;
 
-            &:not(.hide) {
-                grid-template-rows: 1fr;
+            .editor-container {
 
+                position: relative;
 
-                .canvas-area {
-                    grid-column: 1 / 3;
+                .text-editing-container {
+
                     display: grid;
-                    grid-template-columns:20px 1fr minmax(250px, 750px) 1fr 20px ;
-                    grid-template-rows: auto 115px auto 1fr;
+                    grid-auto-flow: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 10px;
+                    border: 1px solid #ebebeb;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
 
-                    background-color: var(--clr-editor--1);
+                    height: 32px;
+                    background-color: #ffffff;
+                    padding: 5px 10px;
 
-                    .canvas-container {
-                        grid-column: 3 / 4;
-                        grid-row: 3 / 4;
-                        max-height: 50%;
-                        max-width: 100%;
-                        margin: 0px;
+                    .text-edit {
+                        display: grid;
+                        grid-auto-flow: column;
+                        align-items: center;
+                        gap: 15px;
                     }
 
-                    button {
-                        grid-row: 1;
-                        display: inline-block;
-                        width: fit-content;
-                        padding: 0;
-                        margin: 0;
-                        cursor: pointer;
+                    .font-family-editing {
+                        width: auto;
                     }
                 }
 
-                .editor-area {
-                    grid-column: 3 / 5;
-                    grid-row: 1;
-                    max-width: 100%;
-                    background-color: var(--clr-gallery--1);
+                .text-input {
+                    /* background: blue; */
+                    width: 100%;
+                    height: 70px;
+                    font-size: 1em;
+                    border: 1px solid #ebebeb;
+                    border-top: 0;
+                    padding: 20px;
+                    margin-bottom: 30px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+
+                .imoji-container {
+                    font-size: 3.5em;
+                    background-color: #ffffff;
+                    padding: 5px;
+
+                    border: 1px solid #ebebeb;
+                    border-radius: 10px;
+                }
+
+                .share-btn {
+
+                    position: absolute;
+                    right: 0px;
+                    bottom: 50px;
+
+                    width: 140px;
+                    height: 54px;
                 }
             }
         }
-
     }
 
-    .main-content {
-        height: calc(100vh - 50px);
-    }
 
-    .editor-area {
-        display: grid;
-        grid-template-columns: 30px 1fr 30px;
-
-        padding-top: 30px;
-
-        .editor-container {
-            grid-column: 2;
-        }
-    }
-
-    .canvas-area {
-        height: 100%;
-        padding-top: 30px;
-
-        button {
-            padding: 0;
-            display: inline-block;
-            margin-left: 30px;
-            cursor: pointer;
-
-            /* Show the button on desktop */
-            transform: translatex(0%);
-        }
-    }
-
-    .btn-toggle-menue {
-        display: none;
-    }
 
     .gallery-container {
         .img-container {
@@ -247,86 +242,4 @@
             }
         }
     }
-
-    .editor-container {
-        position: relative;
-        display: grid;
-        grid-template-rows: 80px 40px 100px 165px 1fr;
-        grid-template-areas:
-            "h"
-            "e"
-            "t"
-            "i"
-            "b";
-
-        .edit-container-header {
-            grid-area: h;
-
-            h2 {
-                font-size: 1.5em;
-            }
-        }
-
-        .text-editing-container {
-            grid-area: e;
-            display: grid;
-            grid-template-columns: minmax(160px, 1fr) 300px;
-
-            border: 1px solid #ebebeb;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            background-color: var(--clr-editor--1);
-
-            .font-family-editing {
-
-                width: 160px;
-                height: 30px;
-                color: #989898;
-                font-size: 0.75em;
-                padding: 0px 15px;
-                border: 1px solid #ebebeb;
-
-                margin: auto 10px;
-
-            }
-
-            .text-edit {
-
-                justify-content: space-around;
-            }
-        }
-
-
-        .text-input {
-            grid-area: t;
-
-            padding: 25px;
-            margin-bottom: 30px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border: 1px solid #ebebeb;
-        }
-
-        .imoji-container {
-            grid-area: i;
-            font-size: 3.5em;
-        }
-
-        .share-btn {
-            grid-area: b;
-
-            position: absolute;
-            right: 0px;
-            bottom: 50px;
-
-            width: 140px;
-            height: 54px;
-        }
-    }
-
-    .hide {
-        display: none;
-    }
 }
-
-/* Large */
